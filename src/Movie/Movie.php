@@ -6,14 +6,19 @@ use App\Customer\Customer;
 
 class Movie implements MovieInterface
 {
+    /** @var int */
     const CHILDRENS = 2;
 
+    /** @var int */
     const REGULAR = 0;
 
+    /** @var int */
     const NEW_RELEASE = 1;
-    
+
+    /** @var string */
     public $title;
 
+    /** @var string */
     public $priceCode;
     
     public function __construct($title, $priceCode) 
@@ -27,7 +32,7 @@ class Movie implements MovieInterface
         return $this->priceCode;
     }
     
-    public function setPriceCode($priceCode): void 
+    public function setPriceCode(int $priceCode): void
     {
         $this->priceCode = $priceCode;
     }

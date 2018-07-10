@@ -2,8 +2,10 @@
 
 namespace App\Customer;
 
+use App\Customer\Factory;
 use App\Movie\Movie;
 use App\Rental\Rental;
+
 
 class Customer implements CustomerInterface
 {
@@ -26,11 +28,13 @@ class Customer implements CustomerInterface
         return $this->name;
     }
     
-    public function statement() 
+    public function statement(string $format = 'string')
     {
         $totalAmount = 0;
         $frequentRenterPoints = 0;
-        $result = "Rental Record for " . $this->getName() . "\n";
+        $options = [];
+
+        $format = Factory::getFormat($format);
         
         foreach ($this->rentals as $each) {
 
@@ -38,20 +42,18 @@ class Customer implements CustomerInterface
 
             $frequentRenterPoints++;
 
-            // add bonus for a two day release rental
             if (($each->movie->getPriceCode() == Movie::NEW_RELEASE) && ($each->getDaysRented() > 1)) {
                 $frequentRenterPoints++;
             }
 
-            $result .= "\t" . $each->movie->getTitle() . "\t" . $thisAmount . "\n";
             $totalAmount += $thisAmount;
+
+            $options[] = ['title' => $each->movie->getTitle(), 'amount' => $thisAmount];
         }
 
-        // add footer lines
-        $result .= "Amount owed is " . $totalAmount . "\n";
-        $result .= "You earned " . $frequentRenterPoints . " frequent renter points";
-        
-        return $result;
+        $generalParam = ['name' => $this->getName(), 'totalAmount' => $totalAmount, 'frequentRenterPoints' => $frequentRenterPoints];
+
+        return $format->getInFormat($options, $generalParam);
     }
 
     public function getAmount($each)

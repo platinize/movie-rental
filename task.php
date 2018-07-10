@@ -21,3 +21,4 @@ $customer->addRental($rental);
 
 // print the statement
 echo $customer->statement();
+echo $customer->statement('html');
