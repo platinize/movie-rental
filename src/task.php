@@ -1,22 +1,27 @@
 <?php
 
-class Customer {
+class Customer 
+{
     public $name;
     public $rentals;
     
-    public function __construct($name) {
+    public function __construct($name) 
+    {
         $this->name = $name;
     }
     
-    public function addRental(Rental $rental) {
+    public function addRental(Rental $rental) 
+    {
         $this->rentals[] = $rental;
     }
     
-    public function getName() {
+    public function getName() 
+    {
         return $this->name;
     }
     
-    public function statement() {
+    public function statement() 
+    {
         $totalAmount = 0;
         $frequentRenterPoints = 0;
         $result = "Rental Record for " . $this->getName() . "\n";
@@ -64,7 +69,8 @@ class Customer {
     }
 }
 
-class Movie {
+class Movie 
+{
     const CHILDRENS = 2;
     const REGULAR = 0;
     const NEW_RELEASE = 1;
@@ -72,38 +78,46 @@ class Movie {
     public $title;
     public $priceCode;
     
-    public function __construct($title, $priceCode) {
+    public function __construct($title, $priceCode) 
+    {
         $this->title = $title;
         $this->setPriceCode($priceCode);
     }
     
-    public function getPriceCode() {
+    public function getPriceCode() 
+    {
         return $this->priceCode;
     }
     
-    public function setPriceCode($priceCode) {
+    public function setPriceCode($priceCode) 
+    {
         $this->priceCode = $priceCode;
     }
     
-    public function getTitle() {
+    public function getTitle() 
+    {
         return $this->title;
     }
 }
 
-class Rental {
+class Rental 
+{
     public $movie;
     public $daysRented;
     
-    public function __construct(Movie $movie, $daysRented) {
+    public function __construct(Movie $movie, $daysRented) 
+    {
         $this->movie = $movie;
         $this->daysRented = $daysRented;
     }
     
-    public function getDaysRented() {
+    public function getDaysRented() 
+    {
         return $this->daysRented;
     }
     
-    public function getMovie() {
+    public function getMovie() 
+    {
         return $this->movie;
     }
 }
