@@ -1,0 +1,14 @@
+{
+    "name": "group1-16/task10.07.18",
+    "authors": [
+        {
+            "name": "platinize",
+            "email": "bonch_igor@mail.ru"
+        }
+    ],
+    "require": {},
+    "autoload":
+    {
+        "psr-4": {"App\\": "src/"}
+    }
+}
