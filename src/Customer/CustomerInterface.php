@@ -11,8 +11,6 @@ interface CustomerInterface
 
     public function getName(): string;
 
-    public function statement();
-
-    public function getAmount($each);
+    public function statement(string $format);
 
 }

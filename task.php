@@ -20,5 +20,5 @@ $rental = new Rental($movie, 2);
 $customer->addRental($rental);
 
 // print the statement
-echo $customer->statement();
+echo $customer->statement().PHP_EOL;
 echo $customer->statement('html');

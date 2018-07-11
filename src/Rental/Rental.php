@@ -6,11 +6,18 @@ use App\Movie\Movie;
 
 class Rental implements RentalInterface
 {
+    /** @var Movie */
     public $movie;
 
+    /** @var int */
     public $daysRented;
-    
-    public function __construct(Movie $movie, $daysRented) 
+
+    /**
+     * Rental constructor.
+     * @param Movie $movie
+     * @param $daysRented int
+     */
+    public function __construct(Movie $movie, int $daysRented)
     {
         $this->movie = $movie;
         $this->daysRented = $daysRented;

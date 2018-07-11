@@ -2,9 +2,10 @@
 
 namespace App\Customer;
 
-class ToString implements FormatInterface
+
+class Textable implements FormatterInterface
 {
-    public function getInFormat(array $options, array $generalParam): string
+    public function format(array $options, array $generalParam): string
     {
         $result = "Rental Record for " . $generalParam['name'] . "\n";
 

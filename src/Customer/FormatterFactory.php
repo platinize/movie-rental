@@ -5,15 +5,25 @@ namespace App\Customer;
 use App\Customer\ToHtml;
 use App\Customer\ToString;
 
-class Factory 
+
+class FormatterFactory
 {
-    public static function getFormat($format)
+    /**
+     * @param $format
+     * @return \App\Customer\ToHtml|\App\Customer\ToString
+     */
+    public static function create($format)
     {
         switch($format) {
+
             case "html":
-                return new ToHtml();
+
+                return new Htmlable();
+
             case "string":
-                return new ToString();
+
+                return new Textable();
+
             default:
                 throw new InvalidArgumentException('Format not supported');
         }
