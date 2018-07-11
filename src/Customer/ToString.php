@@ -2,6 +2,7 @@
 
 namespace App\Customer;
 
+// Textable (by default)
 class ToString implements FormatInterface
 {
     public function getInFormat(array $options, array $generalParam): string

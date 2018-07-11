@@ -6,28 +6,30 @@ use App\Customer\Factory;
 use App\Movie\Movie;
 use App\Rental\Rental;
 
-
 class Customer implements CustomerInterface
 {
+    // typehint
     public $name;
 
     public $rentals;
-    
-    public function __construct($name) 
+
+    // typehint
+    public function __construct($name)
     {
         $this->name = $name;
     }
-    
-    public function addRental(Rental $rental): void 
+
+    public function addRental(Rental $rental): void
     {
         $this->rentals[] = $rental;
     }
-    
-    public function getName(): string 
+
+    public function getName(): string
     {
         return $this->name;
     }
-    
+
+    // слишком большой метод
     public function statement(string $format = 'string')
     {
         $totalAmount = 0;
@@ -35,7 +37,8 @@ class Customer implements CustomerInterface
         $options = [];
 
         $format = Factory::getFormat($format);
-        
+
+        // $each не описывает ничего
         foreach ($this->rentals as $each) {
 
             $thisAmount = $this->getAmount($each);
@@ -56,10 +59,13 @@ class Customer implements CustomerInterface
         return $format->getInFormat($options, $generalParam);
     }
 
+    // typehint
+    // слишком большой метод
     public function getAmount($each)
     {
+        // глупое название
         $thisAmount = 0;
-            
+
         switch ($each->movie->getPriceCode()) {
 
             case Movie::REGULAR:

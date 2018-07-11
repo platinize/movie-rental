@@ -6,22 +6,24 @@ use App\Movie\Movie;
 
 class Rental implements RentalInterface
 {
+    // typehint
     public $movie;
 
     public $daysRented;
-    
-    public function __construct(Movie $movie, $daysRented) 
+
+    // typehint
+    public function __construct(Movie $movie, $daysRented)
     {
         $this->movie = $movie;
         $this->daysRented = $daysRented;
     }
-    
-    public function getDaysRented(): int 
+
+    public function getDaysRented(): int
     {
         return $this->daysRented;
     }
-    
-    public function getMovie(): string 
+
+    public function getMovie(): string
     {
         return $this->movie;
     }
