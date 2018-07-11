@@ -2,6 +2,7 @@
 
 namespace App\Customer;
 
+// Htmlable
 class ToHtml implements FormatInterface
 {
     public function getInFormat(array $options, array $generalParam): string
@@ -16,4 +17,6 @@ class ToHtml implements FormatInterface
 
         return $result;
     }
+
+    // __toString()
 }

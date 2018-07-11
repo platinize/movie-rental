@@ -5,8 +5,11 @@ namespace App\Customer;
 use App\Customer\ToHtml;
 use App\Customer\ToString;
 
-class Factory 
+class Factory
 {
+
+    // typehint
+    // create(string $format)
     public static function getFormat($format)
     {
         switch($format) {
