@@ -7,7 +7,7 @@ use App\Movie\Movie;
 
 class Statement
 {
-    /** @var object  */
+    /** @var Rental[]  */
     public $rentals;
 
     /** @var string  */

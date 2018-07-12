@@ -3,7 +3,7 @@
 namespace App\Customer\PriceCodes;
 
 
-class NewReleasePriceCode
+class NewReleasePriceCode implements PriceGetable
 {
     public function get(int $daysRented): int
     {

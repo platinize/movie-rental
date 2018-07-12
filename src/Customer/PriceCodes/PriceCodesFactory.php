@@ -12,7 +12,7 @@ use App\Rental\Rental;
  */
 class PriceCodesFactory
 {
-    public static function create($priceCode)
+    public static function create(int $priceCode)
     {
         switch($priceCode) {
 

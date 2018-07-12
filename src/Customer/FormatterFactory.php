@@ -2,14 +2,14 @@
 
 namespace App\Customer;
 
-use App\Customer\ToHtml;
-use App\Customer\ToString;
+use App\Customer\HtmlFormatter;
+use App\Customer\TextFormatter;
 
 
 class FormatterFactory
 {
     /**
-     * @param $format
+     * @param $format string
      * @return \App\Customer\ToHtml|\App\Customer\ToString
      */
     public static function create($format)
@@ -18,11 +18,11 @@ class FormatterFactory
 
             case "html":
 
-                return new Htmlable();
+                return new HtmlFormatter();
 
             case "string":
 
-                return new Textable();
+                return new TextFormatter();
 
             default:
                 throw new InvalidArgumentException('Format not supported');

@@ -15,7 +15,6 @@ class Customer implements CustomerInterface
     public $rentals;
 
     /**
-     * Customer constructor.
      * @param $name string Name of the tenant
      */
     public function __construct($name) 
@@ -35,13 +34,13 @@ class Customer implements CustomerInterface
 
     public function statement(string $format = 'string')
     {
-        $format = FormatterFactory::create($format);
+        $formatter = FormatterFactory::create($format);
 
         $statement = new Statement($this->rentals, $this->name);
 
-        $result = $statement->create();
+        $param = $statement->create();
 
-        return $format->format($result['options'], $result['generalParam']);
+        return $formatter->format($param);
     }
 
 
